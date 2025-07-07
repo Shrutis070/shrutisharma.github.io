@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Data Engineer Portfolio</title>
+    <title>Your Name - Data Engineering Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,164 +12,170 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #e2e8f0;
+            background: #0f172a;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
 
         header {
             text-align: center;
-            padding: 60px 0;
-            color: white;
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            margin-bottom: 60px;
+            border-radius: 20px;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 5px solid white;
+            border: 3px solid #64748b;
             margin: 0 auto 30px;
             display: block;
             object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #f8fafc;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 20px;
+            font-size: 1.4rem;
+            color: #94a3b8;
+            margin-bottom: 25px;
+            font-weight: 400;
         }
 
         .bio {
             font-size: 1.1rem;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            opacity: 0.9;
+            color: #cbd5e1;
+            line-height: 1.7;
         }
 
-        .skills {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .section {
+            margin: 60px 0;
         }
 
-        .skills h2 {
+        .section h2 {
             text-align: center;
-            margin-bottom: 30px;
-            color: #4a5568;
-            font-size: 2rem;
+            margin-bottom: 50px;
+            color: #f8fafc;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .skill-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .projects {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .projects h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #4a5568;
-            font-size: 2rem;
-        }
-
-        .project-grid {
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
 
-        .project-card {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 25px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
+        .two-column {
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        }
+
+        .three-column {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        .card {
+            background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+            border-radius: 16px;
+            padding: 0;
+            border: 1px solid #334155;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border-color: #475569;
         }
 
-        .project-card::before {
+        .card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
         }
 
-        .project-title {
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .card-title {
             font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #2d3748;
+            margin-bottom: 12px;
+            color: #f8fafc;
             font-weight: 600;
+            line-height: 1.3;
         }
 
-        .project-description {
-            color: #4a5568;
+        .card-date {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-description {
+            color: #cbd5e1;
             margin-bottom: 20px;
             line-height: 1.6;
+            font-size: 0.95rem;
         }
 
-        .project-tech {
+        .card-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .tech-tag {
-            background: #e2e8f0;
-            color: #4a5568;
-            padding: 4px 10px;
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            padding: 4px 12px;
             border-radius: 15px;
             font-size: 0.8rem;
             font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
-        .project-links {
+        .card-links {
             display: flex;
-            gap: 15px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -177,88 +183,169 @@
             border: none;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            font-size: 0.9rem;
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
+            color: #cbd5e1;
+            border: 2px solid #475569;
         }
 
         .btn-secondary:hover {
-            background: #667eea;
-            color: white;
+            background: #475569;
+            color: #f8fafc;
+            border-color: #64748b;
+        }
+
+        /* Blog Card Styles */
+        .blog-card {
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid #4c1d95;
+        }
+
+        .blog-card::before {
+            background: linear-gradient(90deg, #8b5cf6, #a855f7, #c084fc);
+        }
+
+        .blog-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Latest Projects Styles */
+        .latest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .latest-card {
+            background: linear-gradient(145deg, #172554 0%, #1e3a8a 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #3730a3;
+        }
+
+        .latest-card::before {
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        }
+
+        .latest-title {
+            color: #dbeafe;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .latest-description {
+            color: #bfdbfe;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .latest-link {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .latest-link:hover {
+            color: #93c5fd;
         }
 
         .contact {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 60px 0;
             text-align: center;
+            border: 1px solid #334155;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
 
         .contact h2 {
-            margin-bottom: 30px;
-            color: #4a5568;
-            font-size: 2rem;
+            margin-bottom: 35px;
+            color: #f8fafc;
+            font-size: 2.2rem;
+            font-weight: 600;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
         }
 
         .contact-links a {
-            color: #667eea;
+            color: #cbd5e1;
             text-decoration: none;
-            font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 8px;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 12px;
             transition: all 0.3s ease;
+            border: 2px solid #475569;
+            background: rgba(30, 41, 59, 0.5);
         }
 
         .contact-links a:hover {
-            background: #667eea;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             color: white;
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
         }
 
         footer {
             text-align: center;
-            padding: 30px 0;
-            color: white;
-            opacity: 0.8;
+            padding: 40px 0;
+            color: #64748b;
+            border-top: 1px solid #334155;
+            margin-top: 60px;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
+                padding: 15px;
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
-            .project-grid {
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .latest-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -266,129 +353,224 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .contact-links a {
+                width: 200px;
+            }
+            
+            .card-content {
+                padding: 20px;
+            }
+            
+            .contact {
+                padding: 35px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .card-links {
+                flex-direction: column;
+            }
+            
+            .btn {
+                text-align: center;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <img src="https://via.placeholder.com/150" alt="Your Name" class="profile-img">
+            <img src="https://via.placeholder.com/120/64748b/ffffff?text=YN" alt="Your Name" class="profile-img">
             <h1>Your Name</h1>
             <p class="subtitle">Data Engineering Graduate | Macquarie Business School</p>
             <p class="bio">
                 Recent graduate with hands-on experience in data analysis, visualization, and machine learning. 
                 Specialized in healthcare analytics, fintech analysis, and strategic data visualization. 
-                Passionate about transforming complex datasets into actionable business insights.
+                Passionate about transforming complex datasets into actionable business insights that drive meaningful impact.
             </p>
         </header>
 
-        <section class="skills">
-            <h2>Technical Skills</h2>
-            <div class="skill-tags">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">R Programming</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Tableau</span>
-                <span class="skill-tag">Looker</span>
-                <span class="skill-tag">Data Visualization</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">Keras</span>
-                <span class="skill-tag">LSTM</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Data Analysis</span>
-                <span class="skill-tag">Business Intelligence</span>
-                <span class="skill-tag">Healthcare Analytics</span>
-                <span class="skill-tag">Fintech Analysis</span>
-                <span class="skill-tag">Statistical Analysis</span>
-                <span class="skill-tag">Research</span>
+        <!-- Latest Projects Section -->
+        <section class="section">
+            <h2>Latest Projects</h2>
+            <div class="latest-grid">
+                <div class="latest-card">
+                    <h3 class="latest-title">Real-Time Data Pipeline</h3>
+                    <p class="latest-description">Building a scalable streaming data pipeline using Apache Kafka and Python for real-time analytics.</p>
+                    <a href="https://github.com/yourusername/realtime-pipeline" class="latest-link">View Project →</a>
+                </div>
+                <div class="latest-card">
+                    <h3 class="latest-title">ML Model Deployment</h3>
+                    <p class="latest-description">Deploying machine learning models using Docker and FastAPI for production-ready inference.</p>
+                    <a href="https://github.com/yourusername/ml-deployment" class="latest-link">View Project →</a>
+                </div>
+                <div class="latest-card">
+                    <h3 class="latest-title">Cloud Data Architecture</h3>
+                    <p class="latest-description">Designing cloud-native data architectures using AWS services for enterprise-scale analytics.</p>
+                    <a href="https://github.com/yourusername/cloud-architecture" class="latest-link">View Project →</a>
+                </div>
             </div>
         </section>
 
-        <section class="projects">
+        <!-- University Projects Section -->
+        <section class="section">
             <h2>University Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3 class="project-title">Obesity Analysis for NSW Health</h3>
-                    <p class="project-description">
-                        <strong>Capstone Project (Aug 2024 - Nov 2024)</strong><br>
-                        Analyzed ACS health data to explore obesity's impact on Australians across demographics like gender and age, 
-                        focusing on factors such as physical activity, food consumption, and blood pressure. Developed comprehensive 
-                        visualizations and actionable insights to support NSW Health in creating targeted interventions for public health initiatives.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Data Visualization</span>
-                        <span class="tech-tag">Looker</span>
-                        <span class="tech-tag">Tableau</span>
-                        <span class="tech-tag">Business Intelligence</span>
-                        <span class="tech-tag">Healthcare Analytics</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/nsw-health-obesity-analysis" class="btn btn-primary">View Code</a>
-                        <a href="#" class="btn btn-secondary">Dashboard</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">Strategic Data Visualisation - NSW Food Industry</h3>
-                    <p class="project-description">
-                        <strong>Sep 2023 - Oct 2023</strong><br>
-                        Analyzed datasets comprising food industry offences by NSW LGAs to prepare insightful reports and visualizations. 
-                        Manipulated and faceted complex features, highlighting the nature and trends while summarizing critical factors 
-                        affecting food safety compliance across different local government areas.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">R Programming</span>
-                        <span class="tech-tag">Data Visualization</span>
-                        <span class="tech-tag">Statistical Analysis</span>
-                        <span class="tech-tag">Data Manipulation</span>
-                        <span class="tech-tag">Reporting</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/nsw-food-industry-analysis" class="btn btn-primary">View Code</a>
-                        <a href="#" class="btn btn-secondary">Report</a>
+            <div class="cards-grid two-column">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x200/1e40af/ffffff?text=Healthcare+Dashboard" alt="Obesity Analysis Dashboard" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Obesity Analysis for NSW Health</h3>
+                        <p class="card-date">Capstone Project • Aug 2024 - Nov 2024</p>
+                        <p class="card-description">
+                            Analyzed ACS health data to explore obesity's impact on Australians across demographics like gender and age, 
+                            focusing on factors such as physical activity, food consumption, and blood pressure. Developed comprehensive 
+                            visualizations and actionable insights to support NSW Health in creating targeted interventions.
+                        </p>
+                        <div class="card-tech">
+                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">Looker</span>
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">Business Intelligence</span>
+                            <span class="tech-tag">Healthcare Analytics</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/yourusername/nsw-health-obesity-analysis" class="btn btn-primary">View Project</a>
+                            <a href="#" class="btn btn-secondary">Dashboard</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Analysis of Fintech Failures</h3>
-                    <p class="project-description">
-                        <strong>Oct 2023</strong><br>
-                        Prepared a comprehensive case study on major Australian fintechs and designed a detailed report on the lifetime of Xinja bank. 
-                        Analyzed successful and ineffective approaches to customer acquisition in the competitive neobank landscape, 
-                        providing insights into strategic failures and market dynamics.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Data Analysis</span>
-                        <span class="tech-tag">Research</span>
-                        <span class="tech-tag">Business Analysis</span>
-                        <span class="tech-tag">Case Study</span>
-                        <span class="tech-tag">Fintech</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/fintech-failures-analysis" class="btn btn-primary">View Code</a>
-                        <a href="#" class="btn btn-secondary">Case Study</a>
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x200/059669/ffffff?text=Food+Safety+Analytics" alt="Food Industry Analysis" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Strategic Data Visualisation - NSW Food Industry</h3>
+                        <p class="card-date">Sep 2023 - Oct 2023</p>
+                        <p class="card-description">
+                            Analyzed datasets comprising food industry offences by NSW Local Government Areas to prepare insightful reports and visualizations. 
+                            Manipulated and faceted complex features, highlighting the nature and trends while summarizing critical factors 
+                            affecting food safety compliance across different regions.
+                        </p>
+                        <div class="card-tech">
+                            <span class="tech-tag">R Programming</span>
+                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">Statistical Analysis</span>
+                            <span class="tech-tag">Data Manipulation</span>
+                            <span class="tech-tag">Reporting</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/yourusername/nsw-food-industry-analysis" class="btn btn-primary">View Project</a>
+                            <a href="#" class="btn btn-secondary">Report</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Transformer ChatBot Model</h3>
-                    <p class="project-description">
-                        <strong>Aug 2020 - Dec 2020</strong><br>
-                        Built a transformer-based chatbot using LSTM, Keras, and TensorFlow technologies in Python. 
-                        The model was trained on the Qoca dataset for optimal results. Implemented a complete 
-                        Encoder-Decoder architecture with comprehensive output workflow for natural language processing.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">Keras</span>
-                        <span class="tech-tag">LSTM</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Machine Learning</span>
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x200/dc2626/ffffff?text=Fintech+Analysis" alt="Fintech Failures Analysis" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Analysis of Fintech Failures</h3>
+                        <p class="card-date">Oct 2023</p>
+                        <p class="card-description">
+                            Prepared a comprehensive case study on major Australian fintechs and designed a detailed report on the lifetime of Xinja bank. 
+                            Analyzed successful and ineffective approaches to customer acquisition in the competitive neobank landscape, 
+                            providing insights into strategic failures and market dynamics.
+                        </p>
+                        <div class="card-tech">
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Research</span>
+                            <span class="tech-tag">Business Analysis</span>
+                            <span class="tech-tag">Case Study</span>
+                            <span class="tech-tag">Fintech</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/yourusername/fintech-failures-analysis" class="btn btn-primary">View Project</a>
+                            <a href="#" class="btn btn-secondary">Case Study</a>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/transformer-chatbot" class="btn btn-primary">View Code</a>
-                        <a href="#" class="btn btn-secondary">Demo</a>
+                </div>
+
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x200/7c3aed/ffffff?text=AI+ChatBot" alt="Transformer ChatBot" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Transformer ChatBot Model</h3>
+                        <p class="card-date">Aug 2020 - Dec 2020</p>
+                        <p class="card-description">
+                            Built a transformer-based chatbot using LSTM, Keras, and TensorFlow technologies in Python. 
+                            The model was trained on the Qoca dataset for optimal results. Implemented a complete 
+                            Encoder-Decoder architecture with comprehensive output workflow for natural language processing.
+                        </p>
+                        <div class="card-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Keras</span>
+                            <span class="tech-tag">LSTM</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/yourusername/transformer-chatbot" class="btn btn-primary">View Project</a>
+                            <a href="#" class="btn btn-secondary">Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="section">
+            <h2>Medium Blog</h2>
+            <div class="cards-grid three-column">
+                <div class="card blog-card">
+                    <div class="card-content">
+                        <div class="blog-icon">📊</div>
+                        <h3 class="card-title">Data Engineering Best Practices</h3>
+                        <p class="card-date">Published 2 weeks ago</p>
+                        <p class="card-description">
+                            Exploring modern data engineering practices including data pipeline design patterns, 
+                            quality assurance strategies, and scalable architecture principles for production systems.
+                        </p>
+                        <div class="card-links">
+                            <a href="https://medium.com/@yourusername/data-engineering-best-practices" class="btn btn-primary">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card blog-card">
+                    <div class="card-content">
+                        <div class="blog-icon">🤖</div>
+                        <h3 class="card-title">Machine Learning in Healthcare</h3>
+                        <p class="card-date">Published 1 month ago</p>
+                        <p class="card-description">
+                            Deep dive into applying machine learning techniques for healthcare analytics, 
+                            including challenges with data privacy, model interpretability, and regulatory compliance.
+                        </p>
+                        <div class="card-links">
+                            <a href="https://medium.com/@yourusername/ml-healthcare" class="btn btn-primary">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card blog-card">
+                    <div class="card-content">
+                        <div class="blog-icon">☁️</div>
+                        <h3 class="card-title">Cloud Data Architecture Guide</h3>
+                        <p class="card-date">Published 6 weeks ago</p>
+                        <p class="card-description">
+                            Comprehensive guide to designing cloud-native data architectures using AWS, Azure, and GCP. 
+                            Covers best practices for data lakes, warehouses, and real-time processing systems.
+                        </p>
+                        <div class="card-links">
+                            <a href="https://medium.com/@yourusername/cloud-data-architecture" class="btn btn-primary">Read Article</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -399,6 +581,7 @@
             <div class="contact-links">
                 <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
                 <a href="https://github.com/yourusername">GitHub</a>
+                <a href="https://medium.com/@yourusername">Medium</a>
                 <a href="mailto:your.email@example.com">Email</a>
                 <a href="your-resume.pdf">Resume</a>
             </div>
@@ -406,7 +589,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Your Name. Built with ❤️ and hosted on GitHub Pages.</p>
+        <p>&copy; 2025 Your Name. Built with passion and hosted on GitHub Pages.</p>
     </footer>
 </body>
 </html>
