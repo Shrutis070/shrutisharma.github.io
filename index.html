@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Data Engineer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 30px;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .skills {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .skills h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4a5568;
+            font-size: 2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .projects {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #4a5568;
+            font-size: 2rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #4a5568;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .contact {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 30px;
+            color: #4a5568;
+            font-size: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/150" alt="Your Name" class="profile-img">
+            <h1>Your Name</h1>
+            <p class="subtitle">Data Engineering Graduate | Macquarie Business School</p>
+            <p class="bio">
+                Recent graduate with hands-on experience in data analysis, visualization, and machine learning. 
+                Specialized in healthcare analytics, fintech analysis, and strategic data visualization. 
+                Passionate about transforming complex datasets into actionable business insights.
+            </p>
+        </header>
+
+        <section class="skills">
+            <h2>Technical Skills</h2>
+            <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">R Programming</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">Looker</span>
+                <span class="skill-tag">Data Visualization</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">Keras</span>
+                <span class="skill-tag">LSTM</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Business Intelligence</span>
+                <span class="skill-tag">Healthcare Analytics</span>
+                <span class="skill-tag">Fintech Analysis</span>
+                <span class="skill-tag">Statistical Analysis</span>
+                <span class="skill-tag">Research</span>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2>University Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Obesity Analysis for NSW Health</h3>
+                    <p class="project-description">
+                        <strong>Capstone Project (Aug 2024 - Nov 2024)</strong><br>
+                        Analyzed ACS health data to explore obesity's impact on Australians across demographics like gender and age, 
+                        focusing on factors such as physical activity, food consumption, and blood pressure. Developed comprehensive 
+                        visualizations and actionable insights to support NSW Health in creating targeted interventions for public health initiatives.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Data Visualization</span>
+                        <span class="tech-tag">Looker</span>
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Business Intelligence</span>
+                        <span class="tech-tag">Healthcare Analytics</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/nsw-health-obesity-analysis" class="btn btn-primary">View Code</a>
+                        <a href="#" class="btn btn-secondary">Dashboard</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Strategic Data Visualisation - NSW Food Industry</h3>
+                    <p class="project-description">
+                        <strong>Sep 2023 - Oct 2023</strong><br>
+                        Analyzed datasets comprising food industry offences by NSW LGAs to prepare insightful reports and visualizations. 
+                        Manipulated and faceted complex features, highlighting the nature and trends while summarizing critical factors 
+                        affecting food safety compliance across different local government areas.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">R Programming</span>
+                        <span class="tech-tag">Data Visualization</span>
+                        <span class="tech-tag">Statistical Analysis</span>
+                        <span class="tech-tag">Data Manipulation</span>
+                        <span class="tech-tag">Reporting</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/nsw-food-industry-analysis" class="btn btn-primary">View Code</a>
+                        <a href="#" class="btn btn-secondary">Report</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Analysis of Fintech Failures</h3>
+                    <p class="project-description">
+                        <strong>Oct 2023</strong><br>
+                        Prepared a comprehensive case study on major Australian fintechs and designed a detailed report on the lifetime of Xinja bank. 
+                        Analyzed successful and ineffective approaches to customer acquisition in the competitive neobank landscape, 
+                        providing insights into strategic failures and market dynamics.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Research</span>
+                        <span class="tech-tag">Business Analysis</span>
+                        <span class="tech-tag">Case Study</span>
+                        <span class="tech-tag">Fintech</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/fintech-failures-analysis" class="btn btn-primary">View Code</a>
+                        <a href="#" class="btn btn-secondary">Case Study</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Transformer ChatBot Model</h3>
+                    <p class="project-description">
+                        <strong>Aug 2020 - Dec 2020</strong><br>
+                        Built a transformer-based chatbot using LSTM, Keras, and TensorFlow technologies in Python. 
+                        The model was trained on the Qoca dataset for optimal results. Implemented a complete 
+                        Encoder-Decoder architecture with comprehensive output workflow for natural language processing.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Keras</span>
+                        <span class="tech-tag">LSTM</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Machine Learning</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/transformer-chatbot" class="btn btn-primary">View Code</a>
+                        <a href="#" class="btn btn-secondary">Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2>Let's Connect</h2>
+            <div class="contact-links">
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+                <a href="https://github.com/yourusername">GitHub</a>
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="your-resume.pdf">Resume</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Your Name. Built with ❤️ and hosted on GitHub Pages.</p>
+    </footer>
+</body>
+</html>
